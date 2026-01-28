@@ -1,0 +1,174 @@
+<style>
+    html, body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    body {
+        background-color: #f8f9fa;
+    }
+
+    .app-container {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        max-width: 800px;
+        width: 100%;
+        display: flex;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        border-radius: 14px;
+        overflow: hidden;
+    }
+
+
+    .sidebar {
+      width: 180px;
+      color: #000;
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+      justify-content: center;
+    }
+  
+    .sidebar h5 {
+      margin-bottom: 20px;
+      font-weight: normal;
+      text-align: center;
+    }
+  
+    .sidebar button {
+      background: none;
+      border: none;
+      color: #000;
+      text-align: left;
+      padding: 10px;
+      margin-bottom: 8px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+  
+    .sidebar button:hover {
+      background-color: #e0f0ff;
+      color: #000;
+    }
+  
+    .main-content {
+      flex: 1;
+      background-color: #fff;
+      padding: 30px;
+      overflow-y: auto;
+    }
+  
+    .content-section {
+      display: none;
+    }
+  
+    .content-section.active {
+      display: block;
+    }
+  
+    table th, table td {
+      text-align: left;
+    }
+  </style>
+  
+  <div class="app-container">
+
+    <div class="sidebar">
+      <!-- <h5>Menu</h5> -->
+      <button onclick="showSection('add')">Add Item</button>
+      <button onclick="showSection('edit')">Edit Item</button>
+      <button onclick="showSection('delete')">Delete Item</button>
+      <button onclick="showSection('table')">View Table</button>
+    </div>
+  
+
+    <div class="main-content">
+
+        <div id="add" class="content-section active">
+            <h4>Add Food Item</h4>
+          
+            <div class="row mb-3">
+              <div class="col-md-6">
+                <label class="form-label">Food Name</label>
+                <input type="text" class="form-control" placeholder="Enter food name">
+              </div>
+          
+              <div class="col-md-6">
+                <label class="form-label">Category</label>
+                <select class="form-select">
+                  <option selected disabled>Select category</option>
+                  <option>Starter</option>
+                  <option>Main Course</option>
+                  <option>Dessert</option>
+                  <option>Beverage</option>
+                </select>
+              </div>
+            </div>
+          
+            <div class="mb-3">
+              <label class="form-label">Price</label>
+              <input type="number" class="form-control" placeholder="Enter price">
+            </div>
+          
+            <button class="btn btn-dark mt-2">Save</button>
+          </div>
+          
+  
+
+      <div id="edit" class="content-section">
+        <h4>Edit Food Item</h4>
+        <p>Placeholder for edit form.</p>
+      </div>
+  
+
+      <div id="delete" class="content-section">
+        <h4>Delete Food Item</h4>
+        <p>Placeholder for delete form.</p>
+      </div>
+  
+
+      <div id="table" class="content-section">
+        <h4>Food Items Table</h4>
+        <table class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Price</th>
+              <th>Category</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Paneer Butter Masala</td>
+              <td>250</td>
+              <td>Main Course</td>
+            </tr>
+            <tr>
+              <td>French Fries</td>
+              <td>100</td>
+              <td>Starter</td>
+            </tr>
+            <tr>
+              <td>Chocolate Cake</td>
+              <td>150</td>
+              <td>Dessert</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    function showSection(sectionId) {
+      const sections = document.querySelectorAll('.content-section');
+      sections.forEach(sec => sec.classList.remove('active'));
+      document.getElementById(sectionId).classList.add('active');
+    }
+  </script>
+  
