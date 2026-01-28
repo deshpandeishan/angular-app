@@ -4,4 +4,4 @@ html, body {
     margin: 0;
     background-color: #f8f9fa;
 }
-  
+i:hover, svg:hover { color: #e63946; } /* optional red hover for delete */

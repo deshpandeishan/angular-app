@@ -8,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class FoodTable {
 
+  deleteItem(name: string) {
+    // For now, just log
+    console.log('Delete item:', name);
+    // Later you can call backend API to remove it
+  }
+  
+
 }

@@ -1,5 +1,5 @@
 <h4>Food Items Table</h4>
-<table class="table table-bordered table-striped">
+<table class="table table-borderless">
   <thead>
     <tr>
       <th>Name</th>
@@ -12,16 +12,31 @@
       <td>Paneer Butter Masala</td>
       <td>250</td>
       <td>Main Course</td>
+      <td class="text-center">
+        <button class="btn btn-link p-0 text-danger" (click)="deleteItem('Paneer Butter Masala')">
+          <i class="bi bi-trash"></i>
+        </button>
+      </td>
     </tr>
     <tr>
       <td>French Fries</td>
       <td>100</td>
       <td>Starter</td>
+      <td class="text-center">
+        <button class="btn btn-link p-0 text-danger" (click)="deleteItem('French Fries')">
+          <i class="bi bi-trash"></i>
+        </button>
+      </td>
     </tr>
     <tr>
       <td>Chocolate Cake</td>
       <td>150</td>
       <td>Dessert</td>
+      <td class="text-center">
+        <button class="btn btn-link p-0 text-danger" (click)="deleteItem('Chocolate Cake')">
+          <i class="bi bi-trash"></i>
+        </button>
+      </td>
     </tr>
   </tbody>
 </table>
