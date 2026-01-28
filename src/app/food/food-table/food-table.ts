@@ -8,9 +8,9 @@ import { Component } from '@angular/core';
 })
 export class FoodTable {
 
-  deleteItem(name: string) {
+  deleteItem(foodName: string) {
     // For now, just log
-    console.log('Delete item:', name);
+    console.log('Delete item:', foodName);
     // Later you can call backend API to remove it
   }
   
