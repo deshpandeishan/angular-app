@@ -8,8 +8,10 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class Sidebar {
   @Output() menuSelect = new EventEmitter<'add' | 'edit' | 'table'>();
+  active: 'add' | 'edit' | 'table' | '' = '';
 
   select(value: 'add' | 'edit' | 'table') {
+    this.active = value;
     this.menuSelect.emit(value);
   }
 }

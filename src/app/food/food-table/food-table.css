@@ -1,0 +1,13 @@
+.table {
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.table th, .table td {
+    padding: 12px 15px;
+    vertical-align: middle;
+}
+
+.table th {
+    font-weight: 600;
+}
