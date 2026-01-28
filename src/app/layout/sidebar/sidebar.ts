@@ -7,9 +7,9 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./sidebar.css']
 })
 export class Sidebar {
-  @Output() menuSelect = new EventEmitter<'add' | 'edit' | 'delete' | 'table'>();
+  @Output() menuSelect = new EventEmitter<'add' | 'edit' | 'table'>();
 
-  select(value: 'add' | 'edit' | 'delete' | 'table') {
+  select(value: 'add' | 'edit' | 'table') {
     this.menuSelect.emit(value);
   }
 }

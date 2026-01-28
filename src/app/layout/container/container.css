@@ -4,6 +4,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     max-width: 800px;
+    height: 50%;
     width: 100%;
     display: flex;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
@@ -14,11 +15,12 @@
   .main-content {
     flex: 1;
     background-color: #fff;
+    justify-content: center;
     padding: 30px;
     overflow-y: auto;
   }
   
   table th, table td {
     text-align: left;
-  }
+}
   
