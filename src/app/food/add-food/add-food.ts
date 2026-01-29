@@ -13,7 +13,12 @@ import { FoodService, FoodItem } from '../../services/food';
 export class AddFood {
     @Output() viewTable = new EventEmitter<void>();
 
-    food: FoodItem = { foodName: '', price: 0, category: '' };
+    food: FoodItem = {
+        foodName: '',
+        price: 0,
+        category: '',
+        available: 'Yes'
+    };
     imagePreview: string | null = null;
     selectedImage: File | null = null;
 
@@ -26,24 +31,23 @@ export class AddFood {
     onImageSelect(event: any) {
         const file = event.target.files[0];
         if (!file) return;
-
         this.selectedImage = file;
 
         const reader = new FileReader();
         reader.onload = () => {
-        this.imagePreview = reader.result as string;
+            this.imagePreview = reader.result as string;
         };
         reader.readAsDataURL(file);
     }
 
     save() {
         this.foodService.addFood(this.food, { responseType: 'text' as 'json' }).subscribe({
-        next: () => {
-            this.food = { foodName: '', price: 0, category: '' };
-            this.imagePreview = null;
-            this.selectedImage = null;
-        },
-        error: (err) => console.error(err)
+            next: () => {
+                this.food = { foodName: '', price: 0, category: '', available: 'Yes' };
+                this.imagePreview = null;
+                this.selectedImage = null;
+            },
+            error: (err) => console.error(err)
         });
     }
 }

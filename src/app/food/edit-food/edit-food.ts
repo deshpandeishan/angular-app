@@ -18,6 +18,7 @@ export class EditFood {
         foodName: '',
         price: 0,
         category: '',
+        available: 'Yes'
     };
 
     imagePreview: string | null = null;

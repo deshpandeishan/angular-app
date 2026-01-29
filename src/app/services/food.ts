@@ -7,6 +7,7 @@ export interface FoodItem {
     foodName: string;
     price: number;
     category: string;
+    available: 'Yes' | 'No';
 }
 
 @Injectable({
