@@ -3,11 +3,26 @@
     overflow: hidden;
 }
 
+.table td:last-child {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
 .table th, .table td {
     padding: 12px 15px;
     vertical-align: middle;
 }
 
+.table th:last-child {
+    text-align: center;
+}
+
 .table th {
     font-weight: 600;
+}
+
+.bi-pencil:hover {
+    color: #000;
 }

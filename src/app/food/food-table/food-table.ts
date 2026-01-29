@@ -1,18 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-food-table',
-  imports: [],
   templateUrl: './food-table.html',
   styleUrl: './food-table.css',
 })
 export class FoodTable {
-
-  deleteItem(foodName: string) {
-    // For now, just log
-    console.log('Delete item:', foodName);
-    // Later you can call backend API to remove it
-  }
+  @Output() addFood = new EventEmitter<void>();
+  @Output() editFood = new EventEmitter<void>();
   
+  goToAdd() {
+    this.addFood.emit();
+  }
 
+  goToEdit() {
+    this.editFood.emit();
+  }
 }

@@ -1,10 +1,18 @@
-<h4>Food Items Table</h4>
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <h4 class="mb-0">Food Item Details</h4>
+  <button class="btn btn-light" (click)="goToAdd()">
+    Add Food Item
+  </button>
+</div>
+
 <table class="table table-borderless">
   <thead>
     <tr>
       <th>Name</th>
       <th>Price</th>
       <th>Category</th>
+      <th>Availabile</th>
+      <th>Manage</th>
     </tr>
   </thead>
   <tbody>
@@ -12,30 +20,16 @@
       <td>Paneer Butter Masala</td>
       <td>250</td>
       <td>Main Course</td>
-      <td class="text-center">
-        <button class="btn btn-link p-0 text-danger" (click)="deleteItem('Paneer Butter Masala')">
-          <i class="bi bi-trash"></i>
-        </button>
-      </td>
-    </tr>
-    <tr>
-      <td>French Fries</td>
-      <td>100</td>
-      <td>Starter</td>
-      <td class="text-center">
-        <button class="btn btn-link p-0 text-danger" (click)="deleteItem('French Fries')">
-          <i class="bi bi-trash"></i>
-        </button>
-      </td>
-    </tr>
-    <tr>
-      <td>Chocolate Cake</td>
-      <td>150</td>
-      <td>Dessert</td>
-      <td class="text-center">
-        <button class="btn btn-link p-0 text-danger" (click)="deleteItem('Chocolate Cake')">
-          <i class="bi bi-trash"></i>
-        </button>
+      <td>Yes</td>
+      <td>
+        <i 
+        class="bi bi-pencil me-3"
+        style="cursor: pointer"
+        (click)="goToEdit()">
+      </i>
+        <i class="bi bi-trash text-danger" 
+        style="cursor: pointer">
+      </i>
       </td>
     </tr>
   </tbody>

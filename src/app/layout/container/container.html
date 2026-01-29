@@ -1,9 +1,21 @@
 <div class="app-container">
-  <app-sidebar (menuSelect)="active = $event"></app-sidebar>
-
   <div class="main-content">
-    <app-add-food *ngIf="active === 'add'"></app-add-food>
-    <app-edit-food *ngIf="active === 'edit'"></app-edit-food>
-    <app-food-table *ngIf="active === 'table'"></app-food-table>
+    <app-food-table
+      *ngIf="active === 'table'"
+      (addFood)="active = 'add'"
+      (editFood)="active = 'edit'">
+    </app-food-table>
+    
+    <app-add-food
+      *ngIf="active === 'add'"
+      (viewTable)="active = 'table'">
+    </app-add-food>
+    
+    <app-edit-food
+      *ngIf="active === 'edit'"
+      (goToAdd)="active = 'add'"
+      (goToTable)="active = 'table'">
+    </app-edit-food>
+
   </div>
 </div>

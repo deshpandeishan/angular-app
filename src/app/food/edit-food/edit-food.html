@@ -1,36 +1,90 @@
-<h4>Edit Food Item</h4>
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <div class="d-flex align-items-center gap-2">
+    <i 
+      class="bi bi-chevron-left"
+      style="cursor: pointer; font-size: 20px;"
+      (click)="goToTable.emit()">
+    </i>
 
-<div class="mb-3">
-  <label class="form-label">Select Item to Edit</label>
-  <select class="form-select">
-    <option selected disabled>Select a food item</option>
-    <option>Paneer Butter Masala</option>
-    <option>French Fries</option>
-    <option>Chocolate Cake</option>
-  </select>
-</div>
-
-<div class="row mb-3">
-  <div class="col-md-6">
-    <label class="form-label">Food Name</label>
-    <input type="text" class="form-control" placeholder="Enter food name">
+    <h4 class="mb-0">Edit Food Item</h4>
   </div>
 
-  <div class="col-md-6">
-    <label class="form-label">Category</label>
-    <select class="form-select">
-      <option selected disabled>Select category</option>
-      <option>Starter</option>
-      <option>Main Course</option>
-      <option>Dessert</option>
-      <option>Beverage</option>
-    </select>
+
+  <div class="d-flex gap-2">
+    <button class="btn btn-light btn-sm" (click)="goToAdd.emit()">
+      Add Food Item
+    </button>
+    <button class="btn btn-dark btn-sm" (click)="goToTable.emit()">
+      View Table
+    </button>
   </div>
 </div>
 
-<div class="mb-3">
-  <label class="form-label">Price</label>
-  <input type="number" class="form-control" placeholder="Enter price">
-</div>
+<div class="row">
+  <!-- Left Form -->
+  <div class="col-md-8">
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <label class="form-label">Edit Food Name</label>
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="food.foodName"
+          placeholder="Enter food name">
+      </div>
 
-<button class="btn btn-warning mt-2">Update</button>
+      <div class="col-md-6">
+        <label class="form-label">Edit Food Category</label>
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="food.category"
+          placeholder="Enter food category">
+      </div>
+    </div>
+
+    <div class="row mb-4">
+      <div class="col-md-6">
+        <label class="form-label">Edit Food Price</label>
+        <input
+          type="number"
+          class="form-control"
+          [(ngModel)]="food.price">
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label">Available</label>
+        <select class="form-select">
+          <option selected disabled>Choose availability</option>
+          <option>Yes</option>
+          <option>No</option>
+        </select>
+      </div>
+    </div>
+
+    <button class="btn btn-dark" (click)="update()">Update</button>
+  </div>
+
+  <!-- Right Image Upload -->
+  <div class="col-md-4 d-flex justify-content-center">
+    <div class="image-upload-box" (click)="fileInput.click()">
+      <input
+        type="file"
+        hidden
+        #fileInput
+        accept="image/*"
+        (change)="onImageSelect($event)">
+
+      <ng-container *ngIf="!imagePreview">
+        <p class="mb-1">Upload</p>
+        <p class="mb-2">item image</p>
+        <i class="bi bi-image upload-icon"></i>
+      </ng-container>
+
+      <img
+        *ngIf="imagePreview"
+        [src]="imagePreview"
+        class="preview-image">
+    </div>
+  </div>
+</div>
