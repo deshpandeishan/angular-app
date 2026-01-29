@@ -1,29 +1,36 @@
 .table {
-    border-radius: 8px;
+    border-radius: 14px;
     overflow: hidden;
     width: 100%;
     border-collapse: collapse;
+}
+
+.table th,
+.table td {
+    padding: 26px 32px;
+    vertical-align: middle;
+    border-bottom: 1px solid #ddd;
+    font-size: 18px;
+}
+
+.table th {
+    font-weight: 600;
+    font-size: 20px;
 }
 
 .table td:last-child {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 12px;
-}
-
-.table th, .table td {
-    padding: 12px 15px;
-    vertical-align: middle;
-    border-bottom: 1px solid #ddd;
+    gap: 22px;
 }
 
 .table th:last-child {
     text-align: center;
 }
 
-.table th {
-    font-weight: 600;
+.bi-pencil {
+    font-size: 22px;
 }
 
 .bi-pencil:hover {
@@ -33,15 +40,19 @@
 .btn-custom {
     background-color: #e0e0e0;
     color: #000;
-    padding: 8px 12px;
-    font-size: 16px;
+    padding: 14px 22px;
+    font-size: 19px;
     transition: background-color 0.3s;
     border: none;
-    border-radius: 6px;
+    border-radius: 10px;
 }
 
 .btn-custom:hover {
     background-color: #cfcfcf;
+}
+
+h4 {
+    font-size: 26px;
 }
 
 @media (max-width: 768px) {
@@ -53,7 +64,14 @@
         display: none;
     }
 
-    .table, .table tbody, .table tr, .table td {
+    .bi-pencil {
+        font-size: 16px;
+    }
+
+    .table,
+    .table tbody,
+    .table tr,
+    .table td {
         display: block;
         width: 100%;
     }
@@ -71,6 +89,7 @@
         text-align: left;
         border: none;
         position: relative;
+        font-size: 14px;
     }
 
     .table td::before {
@@ -88,5 +107,6 @@
 
     .btn-custom {
         font-size: 14px;
+        padding: 8px 12px;
     }
 }
