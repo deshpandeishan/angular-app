@@ -6,7 +6,6 @@
 </div>
 
 <div class="row">
-  <!-- Left Form -->
   <div class="col-md-8">
     <div class="row mb-3">
       <div class="col-md-6">
@@ -50,7 +49,6 @@
     <button class="btn btn-dark" (click)="save()">Save</button>
   </div>
 
-  <!-- Right Image Upload -->
   <div class="col-md-4 d-flex justify-content-center">
     <div class="image-upload-box" (click)="fileInput.click()">
       <input
@@ -64,13 +62,10 @@
           <i class="bi bi-image upload-icon"></i>
           <p>Upload item image</p>
         </ng-container>
-        
-
-
-      <img
-        *ngIf="imagePreview"
-        [src]="imagePreview"
-        class="preview-image">
+        <img
+            *ngIf="imagePreview"
+            [src]="imagePreview"
+            class="preview-image">
     </div>
   </div>
 </div>

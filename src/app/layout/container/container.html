@@ -1,21 +1,20 @@
 <div class="app-container">
-  <div class="main-content">
-    <app-food-table
-      *ngIf="active === 'table'"
-      (addFood)="active = 'add'"
-      (editFood)="active = 'edit'">
-    </app-food-table>
-    
-    <app-add-food
-      *ngIf="active === 'add'"
-      (viewTable)="active = 'table'">
-    </app-add-food>
-    
-    <app-edit-food
-      *ngIf="active === 'edit'"
-      (goToAdd)="active = 'add'"
-      (goToTable)="active = 'table'">
-    </app-edit-food>
-
-  </div>
+    <div class="main-content">
+        <app-food-table
+            *ngIf="active === 'table'"
+            (addFood)="active = 'add'"
+            (editFood)="active = 'edit'">
+        </app-food-table>
+        
+        <app-add-food
+            *ngIf="active === 'add'"
+            (viewTable)="active = 'table'">
+        </app-add-food>
+        
+        <app-edit-food
+            *ngIf="active === 'edit'"
+            (goToAdd)="active = 'add'"
+            (goToTable)="active = 'table'">
+        </app-edit-food>
+    </div>
 </div>

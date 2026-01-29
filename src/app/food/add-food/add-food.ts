@@ -4,46 +4,46 @@ import { CommonModule } from '@angular/common';
 import { FoodService, FoodItem } from '../../services/food';
 
 @Component({
-  selector: 'app-add-food',
-  standalone: true,
-  imports: [FormsModule, CommonModule],
-  templateUrl: './add-food.html',
-  styleUrls: ['./add-food.css'],
+    selector: 'app-add-food',
+    standalone: true,
+    imports: [FormsModule, CommonModule],
+    templateUrl: './add-food.html',
+    styleUrls: ['./add-food.css'],
 })
 export class AddFood {
-  @Output() viewTable = new EventEmitter<void>();
+    @Output() viewTable = new EventEmitter<void>();
 
-  food: FoodItem = { foodName: '', price: 0, category: '' };
-  imagePreview: string | null = null;
-  selectedImage: File | null = null;
+    food: FoodItem = { foodName: '', price: 0, category: '' };
+    imagePreview: string | null = null;
+    selectedImage: File | null = null;
 
-  constructor(private foodService: FoodService) {}
+    constructor(private foodService: FoodService) {}
 
-  goToTable() {
-    this.viewTable.emit();
-  }
+    goToTable() {
+        this.viewTable.emit();
+    }
 
-  onImageSelect(event: any) {
-    const file = event.target.files[0];
-    if (!file) return;
+    onImageSelect(event: any) {
+        const file = event.target.files[0];
+        if (!file) return;
 
-    this.selectedImage = file;
+        this.selectedImage = file;
 
-    const reader = new FileReader();
-    reader.onload = () => {
-      this.imagePreview = reader.result as string;
-    };
-    reader.readAsDataURL(file);
-  }
+        const reader = new FileReader();
+        reader.onload = () => {
+        this.imagePreview = reader.result as string;
+        };
+        reader.readAsDataURL(file);
+    }
 
-  save() {
-    this.foodService.addFood(this.food, { responseType: 'text' as 'json' }).subscribe({
-      next: () => {
-        this.food = { foodName: '', price: 0, category: '' };
-        this.imagePreview = null;
-        this.selectedImage = null;
-      },
-      error: (err) => console.error(err)
-    });
-  }
+    save() {
+        this.foodService.addFood(this.food, { responseType: 'text' as 'json' }).subscribe({
+        next: () => {
+            this.food = { foodName: '', price: 0, category: '' };
+            this.imagePreview = null;
+            this.selectedImage = null;
+        },
+        error: (err) => console.error(err)
+        });
+    }
 }
