@@ -26,3 +26,15 @@
 .bi-pencil:hover {
     color: #000;
 }
+
+.btn-custom {
+    background-color: #e0e0e0;
+    color: #000;
+    padding: 8px 12px;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.btn-custom:hover {
+    background-color: #cfcfcf;
+}
