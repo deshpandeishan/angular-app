@@ -45,13 +45,19 @@
 }
 
 @media (max-width: 768px) {
+    h4 {
+        font-size: 18px;
+    }
+
     .table thead {
         display: none;
     }
+
     .table, .table tbody, .table tr, .table td {
         display: block;
         width: 100%;
     }
+
     .table tr {
         margin-bottom: 15px;
         border: 1px solid #ddd;
@@ -59,21 +65,28 @@
         padding: 10px;
         background-color: #fff;
     }
+
     .table td {
         padding: 6px 10px;
         text-align: left;
         border: none;
         position: relative;
     }
+
     .table td::before {
         content: attr(data-label);
         font-weight: 600;
         display: inline-block;
         width: 100px;
     }
+
     .table td:last-child {
         display: flex;
         justify-content: flex-start;
         gap: 12px;
+    }
+
+    .btn-custom {
+        font-size: 14px;
     }
 }
