@@ -1,6 +1,8 @@
 .table {
     border-radius: 8px;
     overflow: hidden;
+    width: 100%;
+    border-collapse: collapse;
 }
 
 .table td:last-child {
@@ -13,6 +15,7 @@
 .table th, .table td {
     padding: 12px 15px;
     vertical-align: middle;
+    border-bottom: 1px solid #ddd;
 }
 
 .table th:last-child {
@@ -33,8 +36,44 @@
     padding: 8px 12px;
     font-size: 16px;
     transition: background-color 0.3s;
+    border: none;
+    border-radius: 6px;
 }
 
 .btn-custom:hover {
     background-color: #cfcfcf;
+}
+
+@media (max-width: 768px) {
+    .table thead {
+        display: none;
+    }
+    .table, .table tbody, .table tr, .table td {
+        display: block;
+        width: 100%;
+    }
+    .table tr {
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        padding: 10px;
+        background-color: #fff;
+    }
+    .table td {
+        padding: 6px 10px;
+        text-align: left;
+        border: none;
+        position: relative;
+    }
+    .table td::before {
+        content: attr(data-label);
+        font-weight: 600;
+        display: inline-block;
+        width: 100px;
+    }
+    .table td:last-child {
+        display: flex;
+        justify-content: flex-start;
+        gap: 12px;
+    }
 }

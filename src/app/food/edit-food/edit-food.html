@@ -1,65 +1,55 @@
 <div class="d-flex justify-content-between align-items-center mb-4">
-    <div class="d-flex align-items-center gap-2">
-      <i class="bi bi-chevron-left" style="cursor:pointer;font-size:20px" (click)="goToTable.emit()"></i>
-      <h4 class="mb-0">Edit Food Item</h4>
-    </div>
-  
-    <div class="d-flex gap-2">
-      <button class="btn btn-custom" (click)="goToAdd.emit()">Add Food Item</button>
-      <button class="btn btn-dark" (click)="goToTable.emit()">View Table</button>
-    </div>
-  </div>
-  
-  <div class="row">
+    <h4 class="mb-0">Edit Food Item</h4>
+    <button class="btn btn-dark btn-sm" (click)="goToTable.emit()">View Table</button>
+</div>
+
+<div class="row">
     <div class="col-md-8">
-      <div class="row mb-3">
-        <div class="col-md-6">
-          <label class="form-label">Edit Food Name</label>
-          <input type="text" class="form-control" [(ngModel)]="food.foodName">
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label class="form-label">Edit Food Name</label>
+                <input type="text" class="form-control" [(ngModel)]="food.foodName">
+            </div>
+
+            <div class="col-md-6">
+                <label class="form-label">Edit Food Category</label>
+                <select class="form-select" [(ngModel)]="food.category">
+                    <option value="" disabled>Select category</option>
+                    <option value="Starter">Starter</option>
+                    <option value="Main Course">Main Course</option>
+                    <option value="Dessert">Dessert</option>
+                    <option value="Beverage">Beverage</option>
+                </select>
+            </div>
         </div>
-  
-        <div class="col-md-6">
-          <label class="form-label">Edit Food Category</label>
-          <select class="form-select" [(ngModel)]="food.category">
-            <option value="" disabled>Select category</option>
-            <option value="Starter">Starter</option>
-            <option value="Main Course">Main Course</option>
-            <option value="Dessert">Dessert</option>
-            <option value="Beverage">Beverage</option>
-          </select>
+
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <label class="form-label">Edit Food Price</label>
+                <input type="number" class="form-control" [(ngModel)]="food.price">
+            </div>
+
+            <div class="col-md-6">
+                <label class="form-label">Available</label>
+                <select class="form-select" [(ngModel)]="food.available">
+                    <option value="" disabled>Select availability</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
         </div>
-      </div>
-  
-      <div class="row mb-4">
-        <div class="col-md-6">
-          <label class="form-label">Edit Food Price</label>
-          <input type="number" class="form-control" [(ngModel)]="food.price">
-        </div>
-  
-        <div class="col-md-6">
-          <label class="form-label">Available</label>
-          <select class="form-select" [(ngModel)]="food.available">
-            <option value="" disabled>Select availability</option>
-            <option value="Yes">Yes</option>
-            <option value="No">No</option>
-          </select>
-        </div>
-      </div>
-  
-      <button class="btn btn-dark" (click)="update()">Update</button>
     </div>
-  
+
     <div class="col-md-4 d-flex justify-content-center">
-      <div class="image-upload-box" (click)="fileInput.click()">
-        <input type="file" hidden #fileInput accept="image/*" (change)="onImageSelect($event)">
-  
-        <ng-container *ngIf="!imagePreview">
-          <i class="bi bi-image upload-icon"></i>
-          <p>Upload item image</p>
-        </ng-container>
-  
-        <img *ngIf="imagePreview" [src]="imagePreview" class="preview-image">
-      </div>
+        <div class="image-upload-box" (click)="fileInput.click()">
+            <input type="file" hidden #fileInput accept="image/*" (change)="onImageSelect($event)">
+            <ng-container *ngIf="!imagePreview">
+                <i class="bi bi-image upload-icon"></i>
+                <p>Upload item image</p>
+            </ng-container>
+            <img *ngIf="imagePreview" [src]="imagePreview" class="preview-image">
+        </div>
     </div>
-  </div>
-  
+
+    <button class="btn btn-dark" style="width: fit-content; margin: 30px auto;" (click)="update()">Update</button>
+</div>

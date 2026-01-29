@@ -1,8 +1,6 @@
 <div class="d-flex justify-content-between align-items-center mb-4">
     <h4 class="mb-0">Food Item Details</h4>
-    <button class="btn btn-custom" (click)="goToAdd()">
-        Add Food Item
-    </button>
+    <button class="btn btn-custom" (click)="goToAdd()">Add Food Item</button>
 </div>
 
 <table class="table table-borderless">
@@ -11,26 +9,39 @@
             <th>Name</th>
             <th>Price</th>
             <th>Category</th>
-            <th>Availabile</th>
+            <th>Available</th>
             <th>Manage</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td>Paneer Butter Masala</td>
-            <td>250</td>
-            <td>Main Course</td>
-            <td>Yes</td>
-            <td>
-                <i 
-                    class="bi bi-pencil me-3"
-                    style="cursor: pointer"
-                    (click)="goToEdit()">
-                </i>
-                <i 
-                    class="bi bi-trash text-danger" 
-                    style="cursor: pointer">
-                </i>
+            <td data-label="Name">Paneer Butter Masala</td>
+            <td data-label="Price">250</td>
+            <td data-label="Category">Main Course</td>
+            <td data-label="Available">Yes</td>
+            <td data-label="Manage">
+                <i class="bi bi-pencil me-3" style="cursor:pointer" (click)="goToEdit()"></i>
+                <i class="bi bi-trash text-danger" style="cursor:pointer"></i>
+            </td>
+        </tr>
+        <tr>
+            <td data-label="Name">Gulab Jamun</td>
+            <td data-label="Price">100</td>
+            <td data-label="Category">Dessert</td>
+            <td data-label="Available">Yes</td>
+            <td data-label="Manage">
+                <i class="bi bi-pencil me-3" style="cursor:pointer" (click)="goToEdit()"></i>
+                <i class="bi bi-trash text-danger" style="cursor:pointer"></i>
+            </td>
+        </tr>
+        <tr>
+            <td data-label="Name">Cold Coffee</td>
+            <td data-label="Price">80</td>
+            <td data-label="Category">Beverage</td>
+            <td data-label="Available">No</td>
+            <td data-label="Manage">
+                <i class="bi bi-pencil me-3" style="cursor:pointer" (click)="goToEdit()"></i>
+                <i class="bi bi-trash text-danger" style="cursor:pointer"></i>
             </td>
         </tr>
     </tbody>

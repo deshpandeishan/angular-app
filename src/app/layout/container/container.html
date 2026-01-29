@@ -5,12 +5,12 @@
             (addFood)="active = 'add'"
             (editFood)="active = 'edit'">
         </app-food-table>
-        
+
         <app-add-food
             *ngIf="active === 'add'"
             (viewTable)="active = 'table'">
         </app-add-food>
-        
+
         <app-edit-food
             *ngIf="active === 'edit'"
             (goToAdd)="active = 'add'"
