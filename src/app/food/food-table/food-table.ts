@@ -16,4 +16,8 @@ export class FoodTable {
     goToEdit() {
         this.editFood.emit();
     }
+
+    viewItem() {
+        
+    }
 }
