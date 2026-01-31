@@ -109,4 +109,8 @@ h4 {
         font-size: 14px;
         padding: 8px 12px;
     }
+
+    .btn-dark {
+        font-size: 0.75rem;
+    }
 }

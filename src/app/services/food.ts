@@ -22,8 +22,8 @@ export class FoodService {
         return this.http.get<FoodItem[]>(`${this.apiUrl}/fooditems`);
     }
 
-    addFood(food: FoodItem, p0: { responseType: "json"; }): Observable<any> {
-        return this.http.post(`${this.apiUrl}/fooditem`, food);
+    addFood(formData: FormData, options: any = {}): Observable<any> {
+        return this.http.post(`${this.apiUrl}/fooditem`, formData, options);
     }
 
     updateFood(food: FoodItem): Observable<any> {

@@ -31,6 +31,7 @@ export class AddFood {
     onImageSelect(event: any) {
         const file = event.target.files[0];
         if (!file) return;
+
         this.selectedImage = file;
 
         const reader = new FileReader();
@@ -41,13 +42,23 @@ export class AddFood {
     }
 
     save() {
-        this.foodService.addFood(this.food, { responseType: 'text' as 'json' }).subscribe({
+        if (!this.selectedImage) {
+            console.error("No image selected");
+            return;
+        }
+
+        const formData = new FormData();
+        formData.append('data', JSON.stringify(this.food));
+        formData.append('image', this.selectedImage);
+
+        this.foodService.addFood(formData, { responseType: 'text' as 'json' }).subscribe({
             next: () => {
                 this.food = { foodName: '', price: 0, category: '', available: 'Yes' };
                 this.imagePreview = null;
                 this.selectedImage = null;
+                console.log('Food item added successfully');
             },
-            error: (err) => console.error(err)
+            error: (err) => console.error('Error adding food item:', err)
         });
     }
 }
