@@ -6,94 +6,53 @@
 <table class="table table-borderless">
     <thead>
         <tr>
-            <th class="text-center">Select</th>
             <th>Name</th>
             <th>Price</th>
             <th>Category</th>
             <th>Available</th>
             <!-- <th>Manage</th> -->
-
         </tr>
     </thead>
     <tbody>
-        
-        <!-- the last comtainer is affecting the view for desktop device -->
         <tr>
-            <td class="d-none d-md-table-cell text-center">
-                <input class="form-check-input" type="checkbox">
-            </td>
             <td data-label="Name">Paneer Butter Masala</td>
             <td data-label="Price">250</td>
             <td data-label="Category">Main Course</td>
             <td data-label="Available">Yes</td>
-        
-            <td class="d-none d-md-table-cell" data-label="Manage">
-                <i class="bi bi-pencil me-3" style="cursor:pointer" (click)="goToEdit()"></i>
-                <!-- <i class="bi d-md-none bi-trash text-danger" style="cursor:pointer"></i> -->
-            </td>
-
-            <td class="justify-content-between">
-                    <div class="d-flex d-md-none justify-content-between">
-                        <i class="bi bi-pencil mx-2 me-4" style="cursor:pointer" (click)="goToEdit()"></i>
-                        <i class="bi bi-trash text-danger" style="cursor:pointer"></i>
-                    </div>
-                    <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#viewFoodItem">View</button>
-            </td>
+            <div class="w-100 align-items-center d-flex justify-content-between">
+                <div class="w-100 ">
+                    <i class="bi bi-pencil me-4 fs-5" style="cursor:pointer;" (click)="goToEdit()"></i>
+                    <i class="bi bi-trash fs-5 text-danger" style="cursor:pointer"></i>
+                </div>
+                <button class="btn btn-dark d-md-flex">View</button>
+            </div>
         </tr>
-        
         <tr>
-            <td class="d-none d-md-table-cell d-none d-none text-center">
-                <input class="form-check-input" type="checkbox">
-            </td>
             <td data-label="Name">Gulab Jamun</td>
             <td data-label="Price">100</td>
             <td data-label="Category">Dessert</td>
             <td data-label="Available">Yes</td>
-        
-            <td class="d-none d-md-table-cell" data-label="Manage">
-                <i class="bi bi-pencil me-3" style="cursor:pointer" (click)="goToEdit()"></i>
-                <!-- <i class="bi d-md-none bi-trash text-danger" style="cursor:pointer"></i> -->
-            </td>
 
-            <td class="justify-content-between">
-                    <div class="d-flex d-md-none justify-content-between">
-                        <i class="bi bi-pencil mx-2 me-4" style="cursor:pointer" (click)="goToEdit()"></i>
-                        <i class="bi bi-trash text-danger" style="cursor:pointer"></i>
-                    </div>
-                    <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#viewFoodItem">View</button>
-            </td>
+            <div class="w-100 align-items-center d-flex justify-content-between">
+                <div class="w-100">
+                    <i class="bi bi-pencil me-4 fs-5" style="cursor:pointer;" (click)="goToEdit()"></i>
+                    <i class="bi bi-trash text-danger fs-5" style="cursor:pointer"></i>
+                </div>
+                <button class="btn btn-dark d-md-flex">View</button>
+            </div>
         </tr>
         <tr>
-            <td class="d-none d-md-table-cell text-center">
-                <input class="form-check-input" type="checkbox">
-            </td>
-        
             <td data-label="Name">Cold Coffee</td>
             <td data-label="Price">80</td>
             <td data-label="Category">Beverage</td>
             <td data-label="Available">No</td>
-        
-            <!-- PC -->
-            <td class="d-none d-md-table-cell" data-label="Manage">
-                <i class="bi bi-pencil me-3" style="cursor:pointer" (click)="goToEdit()"></i>
-            </td>
-        
-            <!-- Mobile -->
-            <td class="p-0 w-100 d-block d-md-table-cell">
-
-                <div class="d-md-none d-flex justify-content-between text-start px-3 py-2">
-                    <div class="d-flex align-items-center">
-                        <i class="bi bi-pencil me-4" style="cursor:pointer" (click)="goToEdit()"></i>
-                        <i class="bi bi-trash text-danger" style="cursor:pointer"></i>
-                    </div>
-            
-                    <button class="btn btn-dark btn-sm" data-bs-toggle="modal" data-bs-target="#viewFoodItem">
-                        View
-                    </button>
+            <div class="w-100 align-items-center d-flex justify-content-between">
+                <div class="w-100">
+                    <i class="bi bi-pencil me-4 fs-5" style="cursor:pointer;" (click)="goToEdit()"></i>
+                    <i class="bi bi-trash fs-5 text-danger" style="cursor:pointer"></i>
                 </div>
-                
-            </td>            
+                <button class="btn btn-dark d-md-flex">View</button>
+            </div>
         </tr>
-        
     </tbody>
 </table>
