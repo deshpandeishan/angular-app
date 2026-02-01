@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output, NgZone } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { FoodService, FoodItem } from '../../services/food';
@@ -13,16 +13,11 @@ import { FoodService, FoodItem } from '../../services/food';
 export class AddFood {
     @Output() viewTable = new EventEmitter<void>();
 
-    food: FoodItem = {
-        foodName: '',
-        price: 0,
-        category: '',
-        available: 'Yes'
-    };
+    food: FoodItem = { foodName: '', price: 0, category: '', available: 'Yes' };
     imagePreview: string | null = null;
     selectedImage: File | null = null;
 
-    constructor(private foodService: FoodService) {}
+    constructor(private foodService: FoodService, private zone: NgZone) {}
 
     goToTable() {
         this.viewTable.emit();
@@ -36,29 +31,26 @@ export class AddFood {
 
         const reader = new FileReader();
         reader.onload = () => {
-            this.imagePreview = reader.result as string;
+            this.zone.run(() => {
+                this.imagePreview = reader.result as string;
+            });
         };
         reader.readAsDataURL(file);
     }
 
     save() {
-        if (!this.selectedImage) {
-            console.error("No image selected");
-            return;
-        }
+        if (!this.selectedImage) return;
 
         const formData = new FormData();
         formData.append('data', JSON.stringify(this.food));
         formData.append('image', this.selectedImage);
 
-        this.foodService.addFood(formData, { responseType: 'text' as 'json' }).subscribe({
-            next: () => {
+        this.foodService.addFood(formData, { responseType: 'text' as 'json' }).subscribe(() => {
+            this.zone.run(() => {
                 this.food = { foodName: '', price: 0, category: '', available: 'Yes' };
                 this.imagePreview = null;
                 this.selectedImage = null;
-                console.log('Food item added successfully');
-            },
-            error: (err) => console.error('Error adding food item:', err)
+            });
         });
     }
 }

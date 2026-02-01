@@ -12,6 +12,14 @@
     border-bottom: 1px solid #ddd;
     font-size: 18px;
 }
+table.table tbody tr td {
+    border: none !important;
+}
+
+table.table thead th {
+    border-bottom: 1px solid #dee2e6;
+}
+
 
 .table th {
     font-weight: 600;

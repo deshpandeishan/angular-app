@@ -6,53 +6,38 @@
 <table class="table table-borderless">
     <thead>
         <tr>
+            <th>Image</th>
             <th>Name</th>
             <th>Price</th>
             <th>Category</th>
             <th>Available</th>
-            <!-- <th>Manage</th> -->
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td data-label="Name">Paneer Butter Masala</td>
-            <td data-label="Price">250</td>
-            <td data-label="Category">Main Course</td>
-            <td data-label="Available">Yes</td>
-            <div class="w-100 align-items-center d-flex justify-content-between">
-                <div class="w-100 ">
-                    <i class="bi bi-pencil me-4 fs-5" style="cursor:pointer;" (click)="goToEdit()"></i>
-                    <i class="bi bi-trash fs-5 text-danger" style="cursor:pointer"></i>
+        <tr *ngFor="let food of foodItems">
+            <td data-label="Image">
+                <img *ngIf="food.imageData" 
+                     [src]="'data:' + food.imageType + ';base64,' + food.imageData" 
+                     alt="{{food.foodName}}" 
+                     width="50" height="50"
+                     class="rounded"/>
+            </td>
+            
+            <td data-label="Name">{{ food.foodName }}</td>
+            <td data-label="Price">{{ food.price }}</td>
+            <td data-label="Category">{{ food.category }}</td>
+            <td data-label="Available">{{ food.available ? 'Yes' : 'No' }}</td>
+            <td data-label="Actions">
+                <div class="w-100 align-items-center d-flex justify-content-between">
+                    <div class="d-flex align-items-center gap-3">
+                        <i class="bi bi-pencil fs-5" style="cursor:pointer" (click)="goToEdit(food)"></i>
+                        <i class="bi bi-trash fs-5 text-danger" style="cursor:pointer" (click)="deleteItem(food)"></i>
+                    </div>
+                    <button class="btn btn-dark">View</button>
                 </div>
-                <button class="btn btn-dark d-md-flex">View</button>
-            </div>
-        </tr>
-        <tr>
-            <td data-label="Name">Gulab Jamun</td>
-            <td data-label="Price">100</td>
-            <td data-label="Category">Dessert</td>
-            <td data-label="Available">Yes</td>
-
-            <div class="w-100 align-items-center d-flex justify-content-between">
-                <div class="w-100">
-                    <i class="bi bi-pencil me-4 fs-5" style="cursor:pointer;" (click)="goToEdit()"></i>
-                    <i class="bi bi-trash text-danger fs-5" style="cursor:pointer"></i>
-                </div>
-                <button class="btn btn-dark d-md-flex">View</button>
-            </div>
-        </tr>
-        <tr>
-            <td data-label="Name">Cold Coffee</td>
-            <td data-label="Price">80</td>
-            <td data-label="Category">Beverage</td>
-            <td data-label="Available">No</td>
-            <div class="w-100 align-items-center d-flex justify-content-between">
-                <div class="w-100">
-                    <i class="bi bi-pencil me-4 fs-5" style="cursor:pointer;" (click)="goToEdit()"></i>
-                    <i class="bi bi-trash fs-5 text-danger" style="cursor:pointer"></i>
-                </div>
-                <button class="btn btn-dark d-md-flex">View</button>
-            </div>
+            </td>
         </tr>
     </tbody>
 </table>
+ 
