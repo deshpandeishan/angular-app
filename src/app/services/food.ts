@@ -39,15 +39,21 @@ export class FoodService {
     }
 
     addFood(formData: FormData, options: any = {}): Observable<any> {
-        return this.http.post(`${this.apiUrl}/fooditem`, formData, options).pipe(
+        return this.http.post(`${this.apiUrl}/fooditem`, formData, { ...options, responseType: 'text' as const }).pipe(
             tap(() => this.loadFoods().subscribe())
         );
     }
 
     updateFood(food: FoodItem): Observable<any> {
-        return this.http.put(`${this.apiUrl}/fooditem`, food).pipe(
-            tap(() => this.loadFoods().subscribe())
-        );
+        this.zone.run(() => {
+            const updatedList = this.foodSubject.value.map(f =>
+                f.foodId === food.foodId ? { ...food } : f
+            );
+            this.foodSubject.next(updatedList);
+            localStorage.setItem('foodItems', JSON.stringify(updatedList));
+        });
+
+        return this.http.put(`${this.apiUrl}/fooditem`, food, { responseType: 'text' });
     }
 
     deleteItem(food: FoodItem): void {
@@ -60,6 +66,6 @@ export class FoodService {
             localStorage.setItem('foodItems', JSON.stringify(this.foodSubject.value));
         });
 
-        this.http.delete(`${this.apiUrl}/fooditem`, { body: food }).subscribe();
+        this.http.delete(`${this.apiUrl}/fooditem`, { body: food, responseType: 'text' }).subscribe();
     }
 }
