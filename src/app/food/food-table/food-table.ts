@@ -21,7 +21,7 @@ export class FoodTable implements OnInit {
         foodName: '',
         price: 0,
         category: '',
-        available: 'Yes',
+        // available: true,
         imageName: '',
         imageType: 'image/png',
         imageData: ''
@@ -59,8 +59,8 @@ export class FoodTable implements OnInit {
             foodId: food.foodId,
             foodName: food.foodName || '',
             price: food.price || 0,
-            category: food.category || '',
-            available: food.available || 'Yes',
+            category: food.category || 'Starter',
+            // available: food.available ?? true,
             imageName: food.imageName || '',
             imageType: food.imageType || 'image/png',
             imageData: food.imageData || ''

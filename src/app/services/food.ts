@@ -7,7 +7,7 @@ export interface FoodItem {
     foodName: string;
     price: number;
     category: string;
-    available: 'Yes' | 'No';
+    // available: boolean;
     imageName?: string;
     imageType?: string;
     imageData?: string;

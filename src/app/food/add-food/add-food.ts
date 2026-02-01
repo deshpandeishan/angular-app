@@ -13,7 +13,7 @@ import { FoodService, FoodItem } from '../../services/food';
 export class AddFood {
     @Output() viewTable = new EventEmitter<void>();
 
-    food: FoodItem = { foodName: '', price: 0, category: '', available: 'Yes' };
+    food: FoodItem = { foodName: '', price: 0, category: '' };
     imagePreview: string | null = null;
     selectedImage: File | null = null;
 
@@ -47,7 +47,7 @@ export class AddFood {
 
         this.foodService.addFood(formData, { responseType: 'text' as 'json' }).subscribe(() => {
             this.zone.run(() => {
-                this.food = { foodName: '', price: 0, category: '', available: 'Yes' };
+                this.food = { foodName: '', price: 0, category: ''};
                 this.imagePreview = null;
                 this.selectedImage = null;
             });

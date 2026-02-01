@@ -29,14 +29,13 @@
                 <input type="number" class="form-control" [(ngModel)]="food.price">
             </div>
 
-            <div class="col-md-6">
+            <!-- <div class="col-md-6">
                 <label class="form-label">Available</label>
                 <select class="form-select" [(ngModel)]="food.available">
-                    <option value="" disabled>Select availability</option>
-                    <option value="Yes">Yes</option>
-                    <option value="No">No</option>
+                    <option [ngValue]="true">true</option>
+                    <option [ngValue]="false">false</option>
                 </select>
-            </div>
+            </div> -->
         </div>
     </div>
 
