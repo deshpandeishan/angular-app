@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { NgIf } from '@angular/common';
 import { AddFood } from '../../food/add-food/add-food';
-
 import { FoodTable } from '../../food/food-table/food-table';
 
 @Component({
@@ -13,4 +12,10 @@ import { FoodTable } from '../../food/food-table/food-table';
 })
 export class Container {
     active: 'add' | 'edit' | 'table' = 'table';
+    toastVisible = false;
+
+    showToast() {
+        this.toastVisible = true;
+        setTimeout(() => this.toastVisible = false, 1000);
+    }
 }

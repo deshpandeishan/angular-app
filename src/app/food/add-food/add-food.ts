@@ -12,6 +12,7 @@ import { FoodService, FoodItem } from '../../services/food';
 })
 export class AddFood {
     @Output() viewTable = new EventEmitter<void>();
+    @Output() itemAdded = new EventEmitter<void>();
 
     food: FoodItem = { foodName: '', price: 0, category: '' };
     imagePreview: string | null = null;
@@ -50,6 +51,7 @@ export class AddFood {
                 this.food = { foodName: '', price: 0, category: ''};
                 this.imagePreview = null;
                 this.selectedImage = null;
+                this.itemAdded.emit();
             });
         });
     }

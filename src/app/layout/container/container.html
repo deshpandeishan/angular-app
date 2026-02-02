@@ -5,9 +5,19 @@
             (addFood)="active = 'add'"
             (editFood)="active = 'edit'">
         </app-food-table>
+
         <app-add-food
             *ngIf="active === 'add'"
-            (viewTable)="active = 'table'">
+            (viewTable)="active = 'table'"
+            (itemAdded)="showToast()">
         </app-add-food>
+    </div>
+</div>
+
+<div class="toast-viewport">
+    <div class="toast custom-toast" [class.show]="toastVisible">
+        <div class="toast-body text-center">
+            Item added
+        </div>
     </div>
 </div>
