@@ -3,7 +3,7 @@
     <button class="btn btn-custom" (click)="goToAdd()">Add Food Item</button>
 </div>
 
-<table class="table table-borderless">
+<table class="table table-borderless" *ngIf="foodItems.length > 0; else noFood">
     <thead>
         <tr>
             <th>Image</th>
@@ -40,7 +40,13 @@
     </tbody>
 </table>
 
-<!-- Food Item Modal -->
+<ng-template #noFood>
+    <div class="text-center py-5 text-muted">
+        <h6 class="mb-1"><i class="bi bi-inbox me-1"></i> No food items</h6>
+        <small>Add a food item to see it here</small>
+    </div>
+</ng-template>
+
 <div class="modal fade" id="foodModal" tabindex="-1" aria-labelledby="foodModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-lg">
     <div class="modal-content">

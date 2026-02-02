@@ -17,7 +17,8 @@ export interface FoodItem {
     providedIn: 'root'
 })
 export class FoodService {
-    private apiUrl = 'https://foodmanagingapp-qnb31ubl.b4a.run/api';
+    // private apiUrl = 'https://foodmanagingapp-qnb31ubl.b4a.run/api';
+    private apiUrl = 'https://foodmanagingapp.onrender.com/api';
     private foodSubject = new BehaviorSubject<FoodItem[]>([]);
     public foodItems$ = this.foodSubject.asObservable();
 
