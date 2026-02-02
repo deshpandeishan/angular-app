@@ -17,7 +17,7 @@ export interface FoodItem {
     providedIn: 'root'
 })
 export class FoodService {
-    private apiUrl = 'http://localhost:8080/api';
+    private apiUrl = 'https://foodmanagingapp-qnb31ubl.b4a.run/api';
     private foodSubject = new BehaviorSubject<FoodItem[]>([]);
     public foodItems$ = this.foodSubject.asObservable();
 
