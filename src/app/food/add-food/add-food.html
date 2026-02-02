@@ -1,6 +1,6 @@
 <div class="d-flex justify-content-between align-items-center mb-4">
     <h4 class="mb-0">Add Food Item</h4>
-    <button class="btn btn-dark btn-sm" (click)="goToTable()">View Table</button>
+    <button class="btn btn-dark btn-sm" (click)="goToTable()" #viewTableBtn>View Table</button>
 </div>
 
 <div class="row">
@@ -28,14 +28,6 @@
                 <label class="form-label">Food Price</label>
                 <input type="number" class="form-control" [(ngModel)]="food.price">
             </div>
-
-            <!-- <div class="col-md-6">
-                <label class="form-label">Available</label>
-                <select class="form-select" [(ngModel)]="food.available">
-                    <option [ngValue]="true">true</option>
-                    <option [ngValue]="false">false</option>
-                </select>
-            </div> -->
         </div>
     </div>
 
